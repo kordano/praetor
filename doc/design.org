@@ -1,0 +1,31 @@
+#+TITLE: Praetor Design Document
+#+AUTHOR: Konrad Kühne
+#+EMAIL: konrad@replikativ.io
+
+* Purpose
+** What?
+- local replikativ node
+- inspection, interaction, controls via UI
+** Why?
+- simplify feedback loop
+- debugging
+** Who?
+- database engineers
+- frontend developers
+* Structure
+** Backend
+- REST Service for infos
+- replikativ peer, stage, error-channel
+** Frontend
+- 
+* Details
+** Frontend
+*** Usage
+*** Configuration
+*** Model
+*** Interaction
+*** Mockup
+* Summary
+** Benefits
+** Assumptions
+** Risks
