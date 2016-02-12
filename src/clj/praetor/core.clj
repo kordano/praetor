@@ -4,52 +4,10 @@
             [hasch.core :refer [uuid]]
             [replikativ.stage :refer [create-stage! connect! subscribe-crdts!]]
             [replikativ.peer :refer [client-peer server-peer]]
-            [kabel.platform :refer [create-http-kit-handler! start stop]]
+            [kabel.platform :as kabel ]
             [konserve.memory :refer [new-mem-store]]
             [full.async :refer [<?? <? go-try go-loop-try]]
             [clojure.core.async :refer [chan go-loop go]]))
-
-
-(def server-state
-  {:address "127.0.0.1"
-   :port-index 31744
-   :nodes {}})
-
-
-(defn new-port [state]
-  (let [old-port (-> state deref :port-index)]
-    (swap! state update :port-index inc)
-    old-port))
-
-
-(defn spawn
-  "Spawn replikativ node"
-  [{:keys [email name eval-fns description mem?] :as config} state]
-  (let [id (uuid)
-        uri ("ws://" (:address @state) ":" (new-port state))
-        store (<?? (new-mem-store)) 
-        err-ch (chan)
-        peer (server-peer
-              (create-http-kit-handler! uri err-ch)
-              name
-              store
-              err-ch)
-        node {:store store :error-channel err-ch :peer peer :uri uri :eval-functions eval-fns}]
-    (swap! state assoc-in [:nodes id] node)
-    id))
-
-
-(defn start
-  "Start replikativ peer"
-  [state id]
-  (start (get-in @state [:nodes id :peer])))
-
-(defn stop
-  "Stop replikativ peer"
-  [state id]
-  (stop (get-in @state [:nodes id :peer])))
-
-
 
 
 (comment
@@ -85,7 +43,7 @@
 
   (def client-store (<?? (new-mem-store)))
 
-  (def client (client-peer "BULLDOG FRONTEND" client-store err-ch))
+  (def client (client-peer "REPLIKATIV" client-store err-ch))
 
   (def stage (<?? (create-stage! "eve@replikativ.io" client err-ch)))
 

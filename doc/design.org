@@ -6,19 +6,23 @@
 ** What?
 - local replikativ node
 - inspection, interaction, controls via UI
+- data time travel
 ** Why?
-- simplify feedback loop
-- debugging
+- peer info : user, crdts, connections 
+- visualize data flow
 ** Who?
 - database engineers
 - frontend developers
 * Structure
-** Backend
 - REST Service for infos
 - replikativ peer, stage, error-channel
-** Frontend
-- 
 * Details
+** Backend
+*** Usage
+*** Configuration
+*** Model
+*** Interaction
+*** Mockup
 ** Frontend
 *** Usage
 *** Configuration
