@@ -33,7 +33,7 @@
   (def server
     (server-peer
      (create-http-kit-handler! uri err-ch)
-     "BULLDOG BACKEND"
+     "PRAETORIANER"
      server-store
      err-ch))
 

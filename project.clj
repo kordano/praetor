@@ -21,7 +21,13 @@
                  
                  [net.polyc0l0r/hasch "0.2.3" :exclusions [org.clojure/clojure]]
                  [http-kit "2.1.19"]
-                 [compojure "1.4.0"]]
+                 [compojure "1.4.0"]
+                 
+                 [org.omcljs/om "0.9.0"]
+                 [cljsjs/react "0.14.3-0"]
+                 [cljsjs/react-dom "0.14.3-1"]
+
+                 [figwheel-sidecar "0.5.0-SNAPSHOT" :scope "test"]]
 
   :min-lein-version "2.0.0"
   )
