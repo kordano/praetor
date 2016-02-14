@@ -24,10 +24,13 @@
                  [compojure "1.4.0"]
                  
                  [org.omcljs/om "0.9.0"]
+                 [sablono "0.6.0"]
                  [cljsjs/react "0.14.3-0"]
                  [cljsjs/react-dom "0.14.3-1"]
 
                  [figwheel-sidecar "0.5.0-SNAPSHOT" :scope "test"]]
 
+  :clean-targets ^{:protect false} ["resources/public/js" "target" "out"]
+  
   :min-lein-version "2.0.0"
   )
